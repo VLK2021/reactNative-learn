@@ -1,4 +1,5 @@
 import {StyleSheet, Text, View, FlatList} from 'react-native';
+import User from "./components/User";
 
 
 const users = [
@@ -23,11 +24,7 @@ export default function App() {
             <FlatList
                 data={users}
                 renderItem={({item}) => {
-                    return <View>
-                        <Text>
-                            {item.name} - {item.age}
-                        </Text>
-                    </View>
+                    return <User item={item}/>
                 }}
                 keyExtractor={(item, index) => index.toString()}
             />
@@ -39,8 +36,5 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
+    }
 });
