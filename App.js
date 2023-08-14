@@ -24,6 +24,7 @@ export default function App() {
                 data={users}
                 renderItem={({item}) => {
                     return <View>
+
                         <Text>
                             {item.name} - {item.age}
                         </Text>
