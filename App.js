@@ -1,23 +1,24 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {createStackNavigator} from "@react-navigation/stack";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {NavigationContainer} from "@react-navigation/native";
+
 
 import Users from "./src/components/Users";
 import UserDetails from "./src/components/UserDetails";
 
 
-let StackNavigator = createStackNavigator();
+let Stack = createNativeStackNavigator();
 
 export default function App() {
 
 
     return (
         <NavigationContainer>
-            <StackNavigator.Navigator>
-                <StackNavigator.Screen name={'Users'} component={Users}/>
-                <StackNavigator.Screen name={'UserDetails'} component={UserDetails}/>
-            </StackNavigator.Navigator>
+            <Stack.Navigator>
+                <Stack.Screen name={'Users'} component={Users}/>
+                <Stack.Screen name={'UserDetails'} component={UserDetails}/>
+            </Stack.Navigator>
         </NavigationContainer>
     );
 }
