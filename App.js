@@ -1,31 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
-import {getUsers} from "./src/api/API";
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+import {createStackNavigator} from "@react-navigation/stack";
+import {NavigationContainer} from "@react-navigation/native";
 
+import Users from "./src/components/Users";
+import UserDetails from "./src/components/UserDetails";
+
+
+let StackNavigator = createStackNavigator();
 
 export default function App() {
-    const [users, setUsers] = useState([]);
-
-    console.log(users);
-
-    async function fetchData() {
-        let users = await getUsers();
-        setUsers([...users]);
-    }
-
-    useEffect(() => {
-        fetchData();
-
-        return ()=>{
-            console.log('hello');
-        }
-    }, []);
 
 
     return (
-        <View>
-
-        </View>
+        <NavigationContainer>
+            <StackNavigator.Navigator>
+                <StackNavigator.Screen name={'Users'} component={Users}/>
+                <StackNavigator.Screen name={'UserDetails'} component={UserDetails}/>
+            </StackNavigator.Navigator>
+        </NavigationContainer>
     );
 }
 
