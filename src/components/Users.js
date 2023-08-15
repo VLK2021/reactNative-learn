@@ -15,6 +15,7 @@ const Users = (props) => {
         setUsers([...users]);
     }
 
+
     useEffect(() => {
         fetchData();
     }, []);
