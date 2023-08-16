@@ -1,24 +1,24 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {NavigationContainer} from "@react-navigation/native";
-
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 
 import Users from "./src/components/Users";
-import UserDetails from "./src/components/UserDetails";
+import PostDrawer from "./src/components/PostDrawer";
 
 
-let Stack = createNativeStackNavigator();
+let BottomTabNavigator = createBottomTabNavigator();
 
 export default function App() {
 
 
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name={'Users'} component={Users}/>
-                <Stack.Screen name={'UserDetails'} component={UserDetails}/>
-            </Stack.Navigator>
+            <BottomTabNavigator.Navigator>
+                <BottomTabNavigator.Screen name={'users'} component={Users}/>
+                <BottomTabNavigator.Screen name={'posts'} component={PostDrawer}/>
+            </BottomTabNavigator.Navigator>
         </NavigationContainer>
     );
 }

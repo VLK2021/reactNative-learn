@@ -28,10 +28,10 @@ const Users = (props) => {
                           return <User item={item} nav={navigation}/>
                       }}
                       keyExtractor={(item) => item.id.toString()}
+                      // horizontal={true}
             />
         </View>
     )
-
 };
 
 export default Users;
